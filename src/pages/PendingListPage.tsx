@@ -34,8 +34,8 @@ export function PendingListPage() {
 
   useEffect(() => {
     load();
-    //const timer = setInterval(load, POLL_INTERVAL_MS);
-    //return () => clearInterval(timer);
+    const timer = setInterval(load, POLL_INTERVAL_MS);
+    return () => clearInterval(timer);
   }, [load]);
 
   return (

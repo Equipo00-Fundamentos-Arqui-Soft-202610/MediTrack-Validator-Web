@@ -4,7 +4,7 @@ import { complianceApi } from '../api/complianceApi';
 import { ApiError } from '../api/types';
 import type { PendingValidationItem } from '../api/types';
 
-const POLL_INTERVAL_MS = 10_000;
+const POLL_INTERVAL_MS = 60_000;
 
 function timeWaiting(submittedAt: string): string {
   const minutes = Math.max(0, Math.floor((Date.now() - new Date(submittedAt).getTime()) / 60_000));
@@ -34,8 +34,8 @@ export function PendingListPage() {
 
   useEffect(() => {
     load();
-    const timer = setInterval(load, POLL_INTERVAL_MS);
-    return () => clearInterval(timer);
+    //const timer = setInterval(load, POLL_INTERVAL_MS);
+    //return () => clearInterval(timer);
   }, [load]);
 
   return (
